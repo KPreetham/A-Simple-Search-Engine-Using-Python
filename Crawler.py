@@ -7,7 +7,7 @@ import os
 already_visited = Set()
 yet_to_visit = []
 
-domain = ''     # The domain name, without the trailing '/', eg: '[http|https]://the-domain-to-index.[com|....]'
+domain = ''  # The domain name, without the trailing '/', eg: '[http|https]://the-domain-to-index.[com|....]'
 yet_to_visit.append(domain)
 
 keep_it_moving = True
@@ -34,15 +34,14 @@ def get_proper_link(cur_link, anchor_link):
         return anchor_link
     elif anchor_link.startswith("/"):
         return domain + anchor_link
+    elif cur_link.endswith(".html"):
+        # replace mode
+        items = cur_link.split('/')
+        items[-1] = anchor_link
+        items = '/'.join(items)
+        return items
     else:
-        if cur_link.endswith(".html"):
-            # replace mode
-            items = cur_link.split('/')
-            items[-1] = anchor_link
-            items = '/'.join(items)
-            return items
-        else:
-            return cur_link + '/' + anchor_link
+        return cur_link + '/' + anchor_link
 
 
 if __name__ == '__main__':
