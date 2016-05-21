@@ -28,10 +28,12 @@ def get_anchor_tag(doc):
 
 
 def get_proper_link(cur_link, anchor_link):
+    global domain
+
     if anchor_link.startswith("http"):
         return anchor_link
     elif anchor_link.startswith("/"):
-        return "http://textfiles.com" + anchor_link
+        return domain + anchor_link
     else:
         if cur_link.endswith(".html"):
             # replace mode
