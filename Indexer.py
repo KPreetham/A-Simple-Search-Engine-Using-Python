@@ -34,7 +34,8 @@ def generate_html_files(url_list):
     f.write("<body>\n")
 
     f.write("<h1>The Web Spider Search Engine</h1>")
-    f.write("<img src='webspider.jpg' width='100' height = '100' align='middle' />")
+    f.write(
+        "<img src='webspider.jpg' width='100' height = '100' align='middle' />")
 
     f.write("<br/> <br/>")
     for item in url_list:
