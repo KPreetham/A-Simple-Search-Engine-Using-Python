@@ -7,7 +7,9 @@ import os
 already_visited = Set()
 yet_to_visit = []
 
-domain = ''  # The domain name, without the trailing '/', eg: '[http|https]://the-domain-to-index.[com|....]'
+# The domain name, without the trailing '/', eg:
+# '[http|https]://the-domain-to-index.[com|....]'
+domain = ''
 yet_to_visit.append(domain)
 
 keep_it_moving = True
@@ -20,7 +22,9 @@ def get_anchor_tag(doc):
     soup = BeautifulSoup(doc, 'html.parser')
 
     try:
-        n_link = [a_tag.get('href').encode('utf-8') for a_tag in soup.find_all('a')]
+        n_link = [
+            a_tag.get('href').encode('utf-8') for a_tag in soup.find_all('a')
+        ]
     except AttributeError:
         return []
 
